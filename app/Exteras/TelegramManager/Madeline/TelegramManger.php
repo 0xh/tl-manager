@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Exteras\TelegramManager;
+namespace App\Exteras\TelegramManager\Madeline;
 
 
-use App\Exteras\TelegramManager\Traits\Madeline\SessionTrait;
-use App\Exteras\TelegramManager\Traits\Madeline\TypesTrait;
-use App\Exteras\TelegramManager\Traits\Madeline\UpdatesTrait;
+use App\Exteras\TelegramManager\Madeline\Traits\SessionTrait;
+use App\Exteras\TelegramManager\Madeline\Traits\TypesTrait;
+use App\Exteras\TelegramManager\Madeline\Traits\UpdatesTrait;
 use danog\MadelineProto\API;
-use danog\MadelineProto\MTProtoTools\UpdateHandler;
 
 class TelegramManger
 {
@@ -16,10 +15,13 @@ class TelegramManger
     use UpdatesTrait;
     use SessionTrait;
 
-    protected $root = __DIR__;
-    protected $api;
+    protected
+        $root = __DIR__;
+    protected
+        $api;
 
-    public function __construct($options = [])
+    public
+    function __construct($options = [])
     {
 
         echo "test test test test";
@@ -33,7 +35,8 @@ class TelegramManger
         $this->api = new API($options);
     }
 
-    public function loadSession($options)
+    public
+    function loadSession($options)
     {
         return $this->sessionExists($options);
     }
