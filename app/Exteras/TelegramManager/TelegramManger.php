@@ -21,6 +21,9 @@ class TelegramManger
 
     public function __construct($options = [])
     {
+
+        echo "test test test test";
+        return;
         if (!empty($options)) {
             if (is_string($options)) {
 
