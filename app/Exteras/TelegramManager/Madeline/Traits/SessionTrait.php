@@ -29,7 +29,7 @@ trait SessionTrait
 
     protected function sessionExists(string $options)
     {
-        return file_exists($this->getSessionWithDIR($options));
+        return !file_exists($this->getSessionWithDIR($options)) ?:$this->getSessionWithDIR($options) ;
     }
 
 }

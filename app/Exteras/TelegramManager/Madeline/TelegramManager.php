@@ -7,6 +7,7 @@ use App\Exteras\TelegramManager\Madeline\Traits\SessionTrait;
 use App\Exteras\TelegramManager\Madeline\Traits\TypesTrait;
 use App\Exteras\TelegramManager\Madeline\Traits\UpdatesTrait;
 use danog\MadelineProto\API;
+use danog\MadelineProto\Exception;
 
 class TelegramManager
 {
@@ -15,28 +16,23 @@ class TelegramManager
     use UpdatesTrait;
     use SessionTrait;
 
-    protected
-        $root = __DIR__;
-    protected
-        $api;
+    protected $root = __DIR__;
+    protected $api;
 
-    public
-    function __construct($options = [])
+    public function __construct($options = [])
     {
-
-        echo "test test test test";
-        return;
         if (!empty($options)) {
-            if (is_string($options)) {
-
-                return;
+            if (is_string($options) && $session = $this->sessionExists($options)) {
+                try{
+                    $this->api = new API($session);
+                } catch (Exception $exception){
+                    echo "Problem Occurred : ".$exception->getMessage();
+                }
             }
         }
-        $this->api = new API($options);
     }
 
-    public
-    function loadSession($options)
+    public function loadSession($options)
     {
         return $this->sessionExists($options);
     }
