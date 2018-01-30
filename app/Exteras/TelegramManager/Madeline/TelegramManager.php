@@ -8,7 +8,7 @@ use App\Exteras\TelegramManager\Madeline\Traits\TypesTrait;
 use App\Exteras\TelegramManager\Madeline\Traits\UpdatesTrait;
 use danog\MadelineProto\API;
 
-class TelegramManger
+class TelegramManager
 {
 
     use TypesTrait;
