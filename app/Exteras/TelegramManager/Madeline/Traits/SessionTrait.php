@@ -16,6 +16,7 @@ trait SessionTrait
     protected $session_suffix = 'session';
     protected $session_separator = '_';
     protected $session_path = __DIR__ . '/Sessions/';
+    protected $session;
 
     protected function getSessionName(string $session_name)
     {
