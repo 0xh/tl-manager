@@ -106,6 +106,5 @@ fabric.properties
 
 # End of https://www.gitignore.io/api/linux,laravel,phpstorm
 yarn-error.log
-*.lock
 app/Extras/TelegramManager/Madeline/Sessions/*
 !app/Extras/TelegramManager/Madeline/Sessions/sessions.txt
