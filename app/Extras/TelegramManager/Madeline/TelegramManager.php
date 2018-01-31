@@ -24,7 +24,7 @@ class TelegramManager
      * @var  API $api
      *
      */
-    protected $api;
+    public $api;
 
     /**
      * TelegramManager constructor.
@@ -43,6 +43,7 @@ class TelegramManager
         }
         if (file_exists($this->getSessionWithDIR())) {
             try {
+                echo "Loading data " . PHP_EOL;
                 $this->loadSession($this->getSessionWithDIR());
                 return;
             } catch (\Exception $exception) {

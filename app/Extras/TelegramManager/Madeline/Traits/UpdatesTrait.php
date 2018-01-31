@@ -13,6 +13,10 @@ trait UpdatesTrait
 {
     public function getUpdates($options = [])
     {
-        return $this->api->get_update();
+        try {
+            $updates = $this->api->get_updates();
+        } catch (\danog\MadelineProto\Exception $exception) {
+            dd($exception);
+        }
     }
 }
