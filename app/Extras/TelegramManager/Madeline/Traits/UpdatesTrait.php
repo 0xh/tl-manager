@@ -6,7 +6,7 @@
  * Time: 07:07 PM
  */
 
-namespace App\Exteras\TelegramManager\Madeline\Traits;
+namespace App\Extras\TelegramManager\Madeline\Traits;
 
 
 trait UpdatesTrait

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Exteras\TelegramManager\Madeline\Traits;
+namespace App\Extras\TelegramManager\Madeline\Traits;
 
 
 trait ErrorTrait

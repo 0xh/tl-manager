@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Exteras\TelegramManager\Madeline;
+namespace App\Extras\TelegramManager\Madeline;
 
 
-use App\Exteras\TelegramManager\Madeline\Traits\ErrorTrait;
-use App\Exteras\TelegramManager\Madeline\Traits\SessionTrait;
-use App\Exteras\TelegramManager\Madeline\Traits\TypesTrait;
-use App\Exteras\TelegramManager\Madeline\Traits\UpdatesTrait;
+use App\Extras\TelegramManager\Madeline\Traits\ErrorTrait;
+use App\Extras\TelegramManager\Madeline\Traits\SerializeTrait;
+use App\Extras\TelegramManager\Madeline\Traits\SessionTrait;
+use App\Extras\TelegramManager\Madeline\Traits\TypesTrait;
+use App\Extras\TelegramManager\Madeline\Traits\UpdatesTrait;
 use danog\MadelineProto\API;
 use danog\MadelineProto\Exception;
 
@@ -17,9 +18,14 @@ class TelegramManager
     use ErrorTrait;
     use TypesTrait;
     use UpdatesTrait;
+    use SerializeTrait;
 
     protected $max_creation_try = 5;
     protected $root = __DIR__;
+    /**
+     * @var API $api
+     *
+     */
     protected $api;
 
     public function __construct($options = [])
@@ -32,6 +38,8 @@ class TelegramManager
                     echo "Problem Occurred : " . $exception->getMessage();
                 }
             }
+            if (!$this->session)
+                throw new \Exception('What is your session name');
             $this->createNewSession($options);
         }
     }
@@ -52,8 +60,8 @@ class TelegramManager
         if (!is_array($options)) {
             $this->session = $options;
         }
-        if (!isset($options['session'])) {
-            throw new \Exception('what is your session name');
+        if (!isset($options['session']) || !$options['session']) {
+            throw new \Exception('What is your session name');
         }
         $this->session = $options['session'];
         unset($options['session']);
@@ -65,6 +73,7 @@ class TelegramManager
         }
         try {
             $this->api = new API($options);
+            $this->serializeSession();
         } catch (Exception $exception) {
             echo "Problem occurred : " . $exception->getMessage();
             if ($this->failsCount() <= $this->max_creation_try) {

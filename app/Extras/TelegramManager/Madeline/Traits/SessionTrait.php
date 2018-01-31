@@ -6,11 +6,12 @@
  * Time: 07:30 PM
  */
 
-namespace App\Exteras\TelegramManager\Madeline\Traits;
+namespace App\Extras\TelegramManager\Madeline\Traits;
 
 
 trait SessionTrait
 {
+
 
     protected $session_prefix = 'Telegram';
     protected $session_suffix = 'session';
@@ -18,12 +19,14 @@ trait SessionTrait
     protected $session_path = __DIR__ . '/Sessions/';
     protected $session;
 
-    protected function getSessionName(string $session_name)
+    protected function getSessionName(string $session_name = '')
     {
+        if (empty($session_name))
+            $session_name = $this->session;
         return $this->session_prefix . $this->session_separator . $session_name . $this->session_separator . $this->session_suffix;
     }
 
-    protected function getSessionWithDIR(string $session_name)
+    protected function getSessionWithDIR(string $session_name = '')
     {
         return $this->root . '/' . $session_name;
     }
