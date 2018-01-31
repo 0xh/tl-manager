@@ -29,7 +29,6 @@ class TelegramManager
 
     public function __construct($options = [])
     {
-        dd($this->getSessionDir());
         if (is_array($options) && isset($options['session'])) {
             $this->session = $options['session'];
             unset($options['session']);
