@@ -15,7 +15,7 @@ trait UpdatesTrait
     {
         try {
             $updates = $this->api->get_updates();
-        } catch (\danog\MadelineProto\Exception $exception) {
+        } catch (\danog\MadelineProto\RPCErrorException $exception) {
             dd($exception);
         }
     }
