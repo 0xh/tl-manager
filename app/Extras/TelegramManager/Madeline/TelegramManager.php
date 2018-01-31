@@ -29,6 +29,7 @@ class TelegramManager
 
     public function __construct($options = [])
     {
+        dd($this->getSessionDir());
         if (is_array($options) && isset($options['session'])) {
             $this->session = $options['session'];
             unset($options['session']);
@@ -42,10 +43,10 @@ class TelegramManager
             if (is_string($options)) {
                 try {
                     $this->loadSession($this->session);
+                    return;
                 } catch (\Exception $exception) {
                     echo "Problem Occurred : " . $exception->getMessage();
                 }
-                return;
             }
             $this->createNewSession($options);
         }
