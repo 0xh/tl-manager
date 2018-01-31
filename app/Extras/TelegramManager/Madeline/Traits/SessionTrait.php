@@ -19,21 +19,28 @@ trait SessionTrait
     protected $session_path = __DIR__ . '/Sessions/';
     protected $session;
 
-    protected function getSessionName(string $session_name = '')
+    protected function getSessionName(string $session = '')
     {
-        if (empty($session_name))
-            $session_name = $this->session;
-        return $this->session_prefix . $this->session_separator . $session_name . $this->session_separator . $this->session_suffix;
+        if (empty($session)){
+            $session = $this->session;
+        }
+        return $this->session_prefix . $this->session_separator . $session . $this->session_separator . $this->session_suffix;
     }
 
-    protected function getSessionWithDIR(string $session_name = '')
+    protected function getSessionWithDIR(string $session = '')
     {
-        return $this->root . '/' . $session_name;
+        if (empty($session)){
+            $session = $this->getSessionName();
+        }
+        return $this->root . '/' . $session;
     }
 
-    protected function sessionExists(string $options)
+    protected function sessionExists(string $session = '')
     {
-        return !file_exists($this->getSessionWithDIR($options)) ?:$this->getSessionWithDIR($options) ;
+        if (empty($session)){
+            $this->session = $session;
+        }
+        return !file_exists($this->getSessionWithDIR()) ?:$this->getSessionWithDIR();
     }
 
 }

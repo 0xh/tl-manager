@@ -20,26 +20,33 @@ class TelegramManager
     use UpdatesTrait;
     use SerializeTrait;
 
-    protected $max_creation_try = 5;
     protected $root = __DIR__;
     /**
-     * @var API $api
+     * @var  API $api
      *
      */
     protected $api;
 
     public function __construct($options = [])
     {
+        if (is_array($options) && isset($options['session'])) {
+            $this->session = $options['session'];
+            unset($options['session']);
+        } else if (is_string($options) && !$options) {
+            $this->session = $options;
+        } else {
+            throw new \Exception('What about your session');
+        }
+
         if (!empty($options)) {
-            if (is_string($options) && $this->session = $this->sessionExists($options)) {
+            if (is_string($options)) {
                 try {
-                    $this->loadSession($options);
-                } catch (Exception $exception) {
+                    $this->loadSession($this->session);
+                } catch (\Exception $exception) {
                     echo "Problem Occurred : " . $exception->getMessage();
                 }
+                return;
             }
-            if (!$this->session)
-                throw new \Exception('What is your session name');
             $this->createNewSession($options);
         }
     }
@@ -57,14 +64,6 @@ class TelegramManager
                 'api_hash' => env('TL_API_HASH', 'b06d4abfb49dc3eeb1aeb98ae0f581e'),
             ]
         ];
-        if (!is_array($options)) {
-            $this->session = $options;
-        }
-        if (!isset($options['session']) || !$options['session']) {
-            throw new \Exception('What is your session name');
-        }
-        $this->session = $options['session'];
-        unset($options['session']);
         if (!isset($options['app_info'])) {
             $options['app_info'] = $default['app_info'];
         } else {
@@ -76,7 +75,8 @@ class TelegramManager
             $this->serializeSession();
         } catch (Exception $exception) {
             echo "Problem occurred : " . $exception->getMessage();
-            if ($this->failsCount() <= $this->max_creation_try) {
+            $this->fails[] = $exception;
+            if ($this->failsCount() < $this->max_creation_try) {
                 $this->createNewSession($options);
             } else {
                 $this->logFails();
