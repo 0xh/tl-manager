@@ -3,6 +3,7 @@
 namespace App\Extras\TelegramManager\Madeline;
 
 
+use App\Extras\TelegramManager\Madeline\Traits\AuthTrait;
 use App\Extras\TelegramManager\Madeline\Traits\ErrorTrait;
 use App\Extras\TelegramManager\Madeline\Traits\SerializeTrait;
 use App\Extras\TelegramManager\Madeline\Traits\SessionTrait;
@@ -18,6 +19,7 @@ class TelegramManager
     use TypesTrait;
     use UpdatesTrait;
     use SerializeTrait;
+    use AuthTrait;
 
     protected $root = __DIR__;
     /**

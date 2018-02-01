@@ -13,10 +13,7 @@ trait UpdatesTrait
 {
     public function getUpdates($options = [])
     {
-        try {
             $updates = $this->api->get_updates();
-        } catch (\danog\MadelineProto\RPCErrorException $exception) {
-            dd($exception);
-        }
+
     }
 }

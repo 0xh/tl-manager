@@ -6,24 +6,40 @@ namespace App\Extras\TelegramManager\Madeline\Traits;
 trait ErrorTrait
 {
     /**
-     * @var \Exception[] $fails
+     * @var array $fails
      */
-    protected $fails = [];
+    protected $fails = [
+        'madeline' => [],
+    ];
     protected $max_creation_try = 5;
 
-    protected function failsCount()
+    protected function addFails($exception, $key = 'madeline')
     {
-        if (empty($this->fails)) {
+        if (!isset($this->fails[$key])) {
+            $this->fails[$key] = [];
+        }
+
+        $this->fails[$key][] = $exception;
+    }
+
+    protected function failsCount($key = 'madeline')
+    {
+        if (empty($this->fails[$key])) {
             return 0;
         }
-        return count($this->fails);
+        /** @var string $key */
+        return count($this->fails[$key]);
     }
 
-    protected function logFails()
+    protected function logFails($key = 'madeline')
     {
-        foreach ($this->fails as $fail) {
-            \danog\MadelineProto\Logger::log($fail->getMessage());
+        if (isset($this->fails[$key])) {
+            foreach ($this->fails[$key] as $fail) {
+                \danog\MadelineProto\Logger::log($fail->getMessage());
+            }
+            return;
         }
-    }
+        echo "Nth to log ...";
 
+    }
 }
