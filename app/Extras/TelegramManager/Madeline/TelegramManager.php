@@ -89,7 +89,7 @@ class TelegramManager
             $this->serializeSession();
         } catch (\Exception $exception) {
             echo "Problem occurred : " . $exception->getMessage();
-            $this->fails[] = $exception;
+            $this->addFails($exception);
             if ($this->failsCount() < $this->max_creation_try) {
                 $this->createNewSession($options);
             } else {

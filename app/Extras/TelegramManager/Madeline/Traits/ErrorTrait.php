@@ -11,7 +11,7 @@ trait ErrorTrait
     protected $fails = [
         'madeline' => [],
     ];
-    protected $max_creation_try = 5;
+    protected $max_creation_try = 50;
 
     protected function addFails($exception, $key = 'madeline')
     {
