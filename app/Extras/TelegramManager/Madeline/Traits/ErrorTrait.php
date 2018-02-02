@@ -19,7 +19,7 @@ trait ErrorTrait
             $this->fails[$key] = [];
         }
 
-        $this->fails[$key][] = $exception;
+        $this->fails[$key] = array_add($this->fails[$key], rand(10000000, 99999999), $exception);
     }
 
     protected function failsCount($key = 'madeline')
