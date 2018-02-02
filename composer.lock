@@ -1024,12 +1024,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "e57b3a09784f846411aa7ed664eedb73e3399078"
+                "reference": "08215e764671a52e8d20fcfc122189648a76c5fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/e57b3a09784f846411aa7ed664eedb73e3399078",
-                "reference": "e57b3a09784f846411aa7ed664eedb73e3399078",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/08215e764671a52e8d20fcfc122189648a76c5fa",
+                "reference": "08215e764671a52e8d20fcfc122189648a76c5fa",
                 "shasum": ""
             },
             "require": {
@@ -1067,7 +1067,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2018-01-25T21:31:33+00:00"
+            "time": "2018-01-30T22:06:20+00:00"
         },
         {
             "name": "paragonie/constant_time_encoding",
@@ -1569,12 +1569,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rollbar/rollbar-php.git",
-                "reference": "0822b0ace5e23035bf8136bb2a3895c08f5e65e7"
+                "reference": "549dfe88036b49fccf7e83f15ba51ac2e8239868"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rollbar/rollbar-php/zipball/0822b0ace5e23035bf8136bb2a3895c08f5e65e7",
-                "reference": "0822b0ace5e23035bf8136bb2a3895c08f5e65e7",
+                "url": "https://api.github.com/repos/rollbar/rollbar-php/zipball/549dfe88036b49fccf7e83f15ba51ac2e8239868",
+                "reference": "549dfe88036b49fccf7e83f15ba51ac2e8239868",
                 "shasum": ""
             },
             "require": {
@@ -1620,7 +1620,7 @@
                 "logging",
                 "monitoring"
             ],
-            "time": "2018-01-14T08:42:06+00:00"
+            "time": "2018-01-31T04:33:23+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2119,12 +2119,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "84b3e65194cf4f7090f0b373b46080e6ac447cdc"
+                "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/84b3e65194cf4f7090f0b373b46080e6ac447cdc",
-                "reference": "84b3e65194cf4f7090f0b373b46080e6ac447cdc",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/78be803ce01e55d3491c1397cf1c64beb9c1b63b",
+                "reference": "78be803ce01e55d3491c1397cf1c64beb9c1b63b",
                 "shasum": ""
             },
             "require": {
@@ -2136,7 +2136,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6-dev"
+                    "dev-master": "1.7-dev"
                 }
             },
             "autoload": {
@@ -2170,7 +2170,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-01-30T16:41:12+00:00"
+            "time": "2018-01-30T19:27:44+00:00"
         },
         {
             "name": "symfony/polyfill-php70",
@@ -2178,12 +2178,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php70.git",
-                "reference": "988bd98341445cd9256b5411a92a1c39a99a5b0b"
+                "reference": "3532bfcd8f933a7816f3a0a59682fc404776600f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/988bd98341445cd9256b5411a92a1c39a99a5b0b",
-                "reference": "988bd98341445cd9256b5411a92a1c39a99a5b0b",
+                "url": "https://api.github.com/repos/symfony/polyfill-php70/zipball/3532bfcd8f933a7816f3a0a59682fc404776600f",
+                "reference": "3532bfcd8f933a7816f3a0a59682fc404776600f",
                 "shasum": ""
             },
             "require": {
@@ -2193,7 +2193,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.6-dev"
+                    "dev-master": "1.7-dev"
                 }
             },
             "autoload": {
@@ -2229,7 +2229,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-01-30T16:41:12+00:00"
+            "time": "2018-01-30T19:27:44+00:00"
         },
         {
             "name": "symfony/process",

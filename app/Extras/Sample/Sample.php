@@ -58,7 +58,7 @@ class Sample
                 if (empty($password)) {
                     $password = readline('Please enter your account password : ');
                     try {
-                        $this->madeline->enterPassword($code);
+                        $this->madeline->enterPassword($password);
                     } catch (\Exception $exception) {
                         echo $exception->getMessage();
                         $this->login($phone_number, $code);
