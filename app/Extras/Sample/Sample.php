@@ -12,13 +12,13 @@ class Sample
     public function __construct()
     {
         $this->madeline = new TelegramManager('samples');
-        try {
+        /*try {
             $this->madeline->api->get_updates();
         } catch (\Exception $exception) {
             if (str_contains($exception->getMessage(), 'socket_read(): unable to read from socket')) {
                 $this->login();
             }
-        }
+        }*/
     }
 
     public function get_updates_test()
