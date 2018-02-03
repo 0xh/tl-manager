@@ -9,9 +9,9 @@ class Sample
     public $madeline;
     public $last_updates;
 
-    public function __construct()
+    public function __construct($session = 'samples')
     {
-        $this->madeline = new TelegramManager('samples');
+        $this->madeline = new TelegramManager($session);
         /*try {
             $this->madeline->api->get_updates();
         } catch (\Exception $exception) {

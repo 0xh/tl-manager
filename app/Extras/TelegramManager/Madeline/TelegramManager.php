@@ -68,7 +68,10 @@ class TelegramManager
             'app_info' => [
                 'api_id' => env('TL_API_ID', 6),
                 'api_hash' => env('TL_API_HASH', 'b06d4abfb49dc3eeb1aeb98ae0f581e'),
-            ]
+            ],
+            'updates' => [
+                'handle_old_updates' => false
+            ],
         ];
         if (is_string($options)) {
             $options = [];

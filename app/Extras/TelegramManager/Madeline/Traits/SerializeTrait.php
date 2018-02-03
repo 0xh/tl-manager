@@ -13,4 +13,9 @@ trait SerializeTrait
         $this->api->session = $this->getSessionWithDIR();
         $this->api->serialize();
     }
+
+    public function serialize()
+    {
+        $this->serializeSession();
+    }
 }
