@@ -9,6 +9,7 @@ use App\Extras\TelegramManager\Madeline\Traits\SerializeTrait;
 use App\Extras\TelegramManager\Madeline\Traits\SessionTrait;
 use App\Extras\TelegramManager\Madeline\Traits\TypesTrait;
 use App\Extras\TelegramManager\Madeline\Traits\UpdatesTrait;
+use App\Extras\TelegramManager\Madeline\Traits\UtilityTrait;
 use danog\MadelineProto\API;
 
 class TelegramManager
@@ -20,7 +21,7 @@ class TelegramManager
     use UpdatesTrait;
     use SerializeTrait;
     use AuthTrait;
-
+    use UtilityTrait;
     protected $root = __DIR__;
     /**
      * @var  API $api
@@ -85,6 +86,7 @@ class TelegramManager
             isset($options['app_info']['api_id']) ?: $options['app_info']['api_id'] = $default['app_info']['api_id'];
             isset($options['app_info']['api_hash']) ?: $options['app_info']['api_hash'] = $default['app_info']['api_hash'];
         }
+        print_r($options);
         try {
             $this->api = new API($options);
             echo 'We created a new instance of MadelineProto (lol) ' . PHP_EOL;

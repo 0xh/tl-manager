@@ -59,6 +59,8 @@ class Sample
                     $password = readline('Please enter your account password : ');
                     try {
                         $this->madeline->enterPassword($password);
+                        $this->madeline->api->session = 'samples';
+                        $this->madeline->api->serialize();
                     } catch (\Exception $exception) {
                         echo $exception->getMessage();
                         $this->login($phone_number, $code);
@@ -68,6 +70,11 @@ class Sample
             }
         }
 
+    }
+
+    public function __call($name, $arguments)
+    {
+        dd($name, $arguments);
     }
 
 }

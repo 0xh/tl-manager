@@ -11,10 +11,14 @@ namespace App\Extras\TelegramManager\Madeline\Traits;
 
 trait UpdatesTrait
 {
+    /**
+     * @param array $options
+     * @return mixed
+     */
     public function getUpdates($options = [])
     {
         try {
-            $updates = $this->api->get_updates();
+            $updates = $this->api->get_updates($options);
             return $updates;
         } catch (\Exception $exception) {
             echo "Error occurred : " . $exception->getMessage();
@@ -24,4 +28,27 @@ trait UpdatesTrait
             }
         }
     }
+
+    public function testUpdates($_ = 'updateNewMessage')
+    {
+        $updates = $this->getUpdates();
+        $d = [];
+        if (is_array($updates)) {
+            if (count($updates) > 0) {
+                foreach ($updates as $update) {
+                    if ($update['update']['_'] == $_) {
+                        $d[] = $update['update'];
+                    }
+                }
+
+            }
+            foreach ($d as $ds) {
+                print_r($this->getMessageType($ds));
+            }
+            return $d;
+        } else {
+            return $updates;
+        }
+    }
+
 }

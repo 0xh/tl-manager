@@ -12,5 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    return view('admin.utils.right_sidebar');
+});
+
+Route::group(['middleware' => 'dashboard', 'prefix' => 'dashboard'], function () {
+    Route::resource('/', 'DashboardController');
+    Route::resource('/addUser', 'DashboardController');
+    Route::resource('/addUser1', 'DashboardController');
+    Route::group(['middleware' => 'dashboard', 'prefix' => 'dashboard'], function () {
+        Route::resource('/', 'DashboardController');
+        Route::resource('/addUser', 'DashboardController');
+        Route::resource('/addUser1', 'DashboardController');
+        Route::resource('/addUser2', 'DashboardController');
+    });
+    Route::resource('/addUser2', 'DashboardController');
 });

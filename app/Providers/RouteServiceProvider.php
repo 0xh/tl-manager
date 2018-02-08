@@ -26,6 +26,20 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+
+
+        Route::macro('getRoutesList', function () {
+            $routes = collect(Route::getRoutes())->map(function ($route) {
+                return [
+                    'host'   => $route->domain(),
+                    'method' => implode('|', $route->methods()),
+                    'uri'    => $route->uri(),
+                    'name'   => $route->getName(),
+                    'action' => $route->getActionName(),
+                ];
+            });
+            return $routes;
+        });
     }
 
     /**
