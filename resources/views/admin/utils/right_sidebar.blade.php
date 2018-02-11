@@ -1,8 +1,12 @@
-<?php
+@php
 if (!isset($menu)) {
     $menu = \App\Extras\TemplateBuilder\MenuGenerator::getMenuFromRoute();
 }
-?>
+@endphp
+
+@if(is_array($menu)&& empty($menu))
+@endif    
+
 @if(is_array($menu) && count($menu) > 0)
     <!-- Left Sidebar Menu -->
     <div class="fixed-sidebar-left">
